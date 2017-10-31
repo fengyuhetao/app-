@@ -8,13 +8,34 @@
 // +----------------------------------------------------------------------
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
+use think\Route;
 
-return [
-    '__pattern__' => [
-        'name' => '\w+',
-    ],
-    '[hello]'     => [
-        ':id'   => ['index/hello', ['method' => 'get'], ['id' => '\d+']],
-        ':name' => ['index/hello', ['method' => 'post']],
-    ],
-];
+Route::resource('api/test', 'api/test');
+
+Route::resource('api/:ver/index', 'api/:ver.index');
+
+Route::get('api/:ver/cat', 'api/:ver.cat/read');
+
+Route::post('api/:ver/cat', 'api/:ver.cat/testJson');
+
+Route::get('api/:ver/rank', 'api/:ver.rank/index');
+
+Route::get('api/:ver/news/:id', 'api/:ver.news/read');
+
+Route::get('api/:ver/news', 'api/:ver.news/index');
+
+Route::get('api/:ver/init', 'api/:ver.index/init');
+
+Route::get('api/sendSms', 'api/test/sendSms');
+//Route::get('test', 'api/test/index');
+//
+//Route::put('test/:id', 'api/test/update');
+ //return [
+//    '__pattern__' => [
+//        'name' => '\w+',
+//    ],
+//    '[hello]'     => [
+//        ':id'   => ['index/hello', ['method' => 'get'], ['id' => '\d+']],
+//        ':name' => ['index/hello', ['method' => 'post']],
+//    ],
+//];

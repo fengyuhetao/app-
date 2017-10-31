@@ -35,3 +35,36 @@ function getCatName($catId) {
 function isYesNo($str) {
     return $str ? '<span style="color:red">是</span>' : '<span>否</span>';
 }
+
+function status($id, $status) {
+    $controller = request()->controller();
+
+    $sta = $status == 1 ? 0 : 1;
+
+    $url = url($controller.'/status', ['id' => $id, 'status' => $sta]);
+
+    if($status == 1) {
+        $str = "<a href='javascript:;' title='修改状态' status_url='" .$url."' onclick='app_status(this)'><span class='label label-success'>正常</span></a>";
+    } elseif($status == 0) {
+        $str = "<a href='javascript:;' title='修改状态' status_url='" .$url."' onclick='app_status(this)'><span class='label label-danger'>待审</span></a>";
+    }
+
+    return $str;
+}
+
+/**
+ * 通用化api接口的数据输出
+ * @param int $status
+ * @param string $message
+ * @param array $data
+ * @param int $httpCode
+ */
+function api_return( $data, $status = 0, $message = 'OK', $httpCode = 200) {
+    $result =  [
+        'status' => $status,
+        'message' => $message,
+        'data' => $data
+    ];
+
+    return json($result, $httpCode);
+}

@@ -11,4 +11,8 @@ return [
     'status_normal' => 1,
 //    待审
     'status_padding' => 0,
+
+    'success' => 1,                 //api返回 正确
+    'error' => 0,                   //api返回 错误
+    'httpCode' => 200.              // api 返回码
 ];
