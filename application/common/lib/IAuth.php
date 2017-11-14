@@ -72,6 +72,7 @@ class IAuth
     }
 
     /**
+     * TODO 不完善，应该在token中加入时间戳，设置过期时间，当token失效时，要求重新登录，类似于sign一样      access_token = token+13位时间戳
      * 设置远程登录token
      */
     public static function setAppToken($phone = '')

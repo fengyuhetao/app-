@@ -27,6 +27,16 @@ Route::get('api/:ver/news', 'api/:ver.news/index');
 Route::get('api/:ver/init', 'api/:ver.index/init');
 
 Route::get('api/sendSms', 'api/test/sendSms');
+
+Route::post('api/:ver/login', 'api/:ver.login/save');
+
+Route::resource('api/:ver/user', 'api/:ver.user');
+
+Route::post('api/:ver/image', 'api/:ver.image/save');
+
+Route::post('api/:ver/upvote', 'api/:ver.upvote/save');
+
+Route::delete('api/:ver/upvote', 'api/:ver.upvote/delete');
 //Route::get('test', 'api/test/index');
 //
 //Route::put('test/:id', 'api/test/update');
